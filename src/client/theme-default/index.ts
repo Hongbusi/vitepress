@@ -1,5 +1,6 @@
 import './styles/vars.css'
 import './styles/base.css'
+import './styles/utils.css'
 
 import { Theme } from 'vitepress'
 import Layout from './Layout.vue'

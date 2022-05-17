@@ -26,6 +26,10 @@ export default defineConfig({
       placement: 'vuejsorg'
     },
 
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+    ],
+
     nav: [
       { text: 'Guide', link: '/', activeMatch: '^/$|^/guide/' },
       {

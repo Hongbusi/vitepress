@@ -1,7 +1,7 @@
 export namespace DefaultTheme {
   export interface Config {
     logo?: string
-    nav?: NavItem[] | false
+    nav?: NavItem[]
     sidebar?: SideBarConfig | MultiSideBarConfig
 
     /**
@@ -60,6 +60,8 @@ export namespace DefaultTheme {
     prevLinks?: boolean
     nextLinks?: boolean
 
+    socialLinks?: SocialLink[]
+
     locales?: Record<string, LocaleConfig & Omit<Config, 'locales'>>
 
     algolia?: AlgoliaSearchOptions
@@ -71,23 +73,23 @@ export namespace DefaultTheme {
     }
   }
 
-  // navbar --------------------------------------------------------------------
+  // nav -----------------------------------------------------------------------
 
   export type NavItem = NavItemWithLink | NavItemWithChildren
 
-  export interface NavItemBase {
+  export type NavItemWithLink = {
     text: string
-    target?: string
-    rel?: string
-    ariaLabel?: string
+    link: string
+
+    /**
+     * `activeMatch` is expected to be a regex string. We can't use actual
+     * RegExp object here because it isn't serializable
+     */
     activeMatch?: string
   }
 
-  export interface NavItemWithLink extends NavItemBase {
-    link: string
-  }
-
-  export interface NavItemWithChildren extends NavItemBase {
+  export interface NavItemWithChildren {
+    text?: string
     items: NavItemWithLink[]
   }
 
@@ -117,6 +119,22 @@ export namespace DefaultTheme {
 
     children: SideBarItem[]
   }
+
+  // social link ---------------------------------------------------------------
+  export interface SocialLink {
+    icon: SocialLinkIcon
+    link: string
+  }
+
+  export type SocialLinkIcon =
+    | 'discord'
+    | 'facebook'
+    | 'github'
+    | 'instagram'
+    | 'linkedin'
+    | 'slack'
+    | 'twitter'
+    | 'youtube'
 
   // algolia  ------------------------------------------------------------------
   // partially copied from @docsearch/react/dist/esm/DocSearch.d.ts
