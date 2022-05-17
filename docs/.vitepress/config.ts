@@ -2,97 +2,41 @@ import { defineConfig } from '../../src/node'
 
 export default defineConfig({
   lang: 'en-US',
-  title: 'VitePress',
-  description: 'Vite & Vue powered static site generator.',
-  lastUpdated: true,
+  title: 'Vite',
+  description: 'Next Generation Frontend Tooling',
 
   themeConfig: {
-    repo: 'vuejs/vitepress',
-    docsDir: 'docs',
-    docsBranch: 'main',
-    editLinks: true,
-    editLinkText: 'Edit this page on GitHub',
-    lastUpdated: 'Last Updated',
-
-    algolia: {
-      appId: '8J64VVRP8K',
-      apiKey: 'a18e2f4cc5665f6602c5631fd868adfd',
-      indexName: 'vitepress'
-    },
-
-    carbonAds: {
-      carbon: 'CEBDT27Y',
-      custom: 'CKYD62QM',
-      placement: 'vuejsorg'
-    },
-
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ],
-
     nav: [
-      { text: 'Guide', link: '/', activeMatch: '^/$|^/guide/' },
+      { text: 'Guide', link: '/guide/' },
+      { text: 'Config', link: '/config/' },
+      { text: 'Plugins', link: '/plugins/' },
       {
-        text: 'Config Reference',
-        link: '/config/basics',
-        activeMatch: '^/config/'
-      },
-      {
-        text: 'Release Notes',
-        link: 'https://github.com/vuejs/vitepress/releases'
+        text: 'Links',
+        items: [
+          { text: 'GitHub', link: 'https://github.com/vitejs/vite' },
+          { text: 'Twitter', link: 'https://twitter.com/vite_js' },
+          { text: 'Discord Chat', link: 'https://chat.vitejs.dev' },
+          {
+            text: 'Awesome Vite',
+            link: 'https://github.com/vitejs/awesome-vite'
+          },
+          { text: 'DEV Community', link: 'https://dev.to/t/vite' },
+          {
+            text: 'Rollup Plugins Compat',
+            link: 'https://vite-rollup-plugins.patak.dev/'
+          },
+          {
+            text: 'Changelog',
+            link: 'https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md'
+          }
+        ]
       }
     ],
 
-    sidebar: {
-      '/guide/': getGuideSidebar(),
-      '/config/': getConfigSidebar(),
-      '/': getGuideSidebar()
-    }
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/vitejs/vite' },
+      { icon: 'twitter', link: 'https://twitter.com/vite_js' },
+      { icon: 'discord', link: 'https://chat.vitejs.dev' }
+    ]
   }
 })
-
-function getGuideSidebar() {
-  return [
-    {
-      text: 'Introduction',
-      children: [
-        { text: 'What is VitePress?', link: '/' },
-        { text: 'Getting Started', link: '/guide/getting-started' },
-        { text: 'Configuration', link: '/guide/configuration' },
-        { text: 'Asset Handling', link: '/guide/assets' },
-        { text: 'Markdown Extensions', link: '/guide/markdown' },
-        { text: 'Using Vue in Markdown', link: '/guide/using-vue' },
-        { text: 'Deploying', link: '/guide/deploy' }
-      ]
-    },
-    {
-      text: 'Advanced',
-      children: [
-        { text: 'Frontmatter', link: '/guide/frontmatter' },
-        { text: 'Theming', link: '/guide/theming' },
-        { text: 'API Reference', link: '/guide/api' },
-        {
-          text: 'Differences from Vuepress',
-          link: '/guide/differences-from-vuepress'
-        }
-      ]
-    }
-  ]
-}
-
-function getConfigSidebar() {
-  return [
-    {
-      text: 'App Config',
-      children: [{ text: 'Basics', link: '/config/basics' }]
-    },
-    {
-      text: 'Theme Config',
-      children: [
-        { text: 'Homepage', link: '/config/homepage' },
-        { text: 'Algolia Search', link: '/config/algolia-search' },
-        { text: 'Carbon Ads', link: '/config/carbon-ads' }
-      ]
-    }
-  ]
-}

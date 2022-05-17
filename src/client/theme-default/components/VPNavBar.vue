@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import VPNavBarTitle from './VPNavBarTitle.vue'
 // import VPNavBarSearch from './VPNavBarSearch.vue'
-// import VPNavBarMenu from './VPNavBarMenu.vue'
-// import VPNavBarAppearance from './VPNavBarAppearance.vue'
-// import VPNavBarSocialLinks from './VPNavBarSocialLinks.vue'
-// import VPNavBarExtra from './VPNavBarExtra.vue'
+import VPNavBarMenu from './VPNavBarMenu.vue'
+import VPNavBarAppearance from './VPNavBarAppearance.vue'
+import VPNavBarSocialLinks from './VPNavBarSocialLinks.vue'
+import VPNavBarExtra from './VPNavBarExtra.vue'
 import VPNavBarHamburger from './VPNavBarHamburger.vue'
 
 defineProps<{
@@ -23,10 +23,10 @@ defineEmits<{
 
       <div class="content">
         <!-- <VPNavBarSearch class="search" /> -->
-        <!-- <VPNavBarMenu class="menu" /> -->
-        <!-- <VPNavBarAppearance class="appearance" /> -->
-        <!-- <VPNavBarSocialLinks class="social-links" /> -->
-        <!-- <VPNavBarExtra class="extra" /> -->
+        <VPNavBarMenu class="menu" />
+        <VPNavBarAppearance class="appearance" />
+        <VPNavBarSocialLinks class="social-links" />
+        <VPNavBarExtra class="extra" />
         <VPNavBarHamburger
           class="hamburger"
           :active="isScreenOpen"
@@ -46,6 +46,13 @@ defineEmits<{
   transition: border-color 0.5s, background-color 0.5s;
 }
 
+@media (min-width: 1280px) {
+  .VPNavBar {
+    height: var(--vp-nav-height-desktop);
+    border-bottom: 0;
+  }
+}
+
 .container {
   display: flex;
   justify-content: space-between;
@@ -60,15 +67,38 @@ defineEmits<{
   flex-grow: 1;
 }
 
+@media (min-width: 1280px) {
+  .content {
+    padding: 0 32px;
+  }
+}
+
 .menu + .appearance {
   margin-left: 8px;
 }
 
-.menu + .social-links {
-  margin-left: 12px;
+.menu + .appearance::before,
+.appearance + .social-links::before {
+  margin-right: 8px;
+  width: 1px;
+  height: 24px;
+  background-color: var(--vp-c-divider-light);
+  content: "";
+}
+
+.menu + .appearance::before {
+  margin-right: 16px;
+}
+
+.appearance + .social-links::before {
+  margin-right: 8px;
 }
 
 .appearance + .social-links {
-  margin-left: 12px;
+  margin-left: 16px;
+}
+
+.social-links {
+  margin-right: -8px;
 }
 </style>

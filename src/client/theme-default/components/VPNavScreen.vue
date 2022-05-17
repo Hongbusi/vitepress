@@ -91,6 +91,6 @@ function unlockBodyScroll() {
 }
 
 .appearance + .social-links {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 </style>

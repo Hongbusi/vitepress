@@ -44,20 +44,20 @@ const icons = {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   color: var(--vp-c-text-2);
   transition: color .5s;
 }
 
 .VPSocialLink:hover {
-  color: var(--vt-c-text-1);
+  color: var(--vp-c-text-1);
   transition: color .25s;
 }
 
 .icon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   fill: currentColor;
 }
 </style>

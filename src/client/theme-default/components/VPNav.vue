@@ -25,13 +25,12 @@ provide('close-screen', closeScreen)
   top: 0;
   left: 0;
   z-index: var(--vp-z-index-nav);
+  width: 100%;
 }
 
-@media (min-width: 960px) {
-/*  .VPNav {
+@media (min-width: 1280px) {
+  .VPNav {
     position: fixed;
-    top: var(--vt-banner-height, 0px);
-    width: 100%;
-  }*/
+  }
 }
 </style>

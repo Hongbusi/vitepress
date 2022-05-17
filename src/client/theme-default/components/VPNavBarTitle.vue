@@ -25,4 +25,11 @@ const { site } = useData()
 .VPNavBarTitle:hover {
   opacity: 0.6;
 }
+
+@media (min-width: 1280px) {
+  .VPNavBarTitle {
+    padding: 0 32px;
+    height: var(--vp-nav-height-desktop);
+  }
+}
 </style>
