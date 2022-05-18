@@ -135,6 +135,14 @@ export default defineConfig({
       ]
     },
 
+    localeLinks: {
+      text: 'English',
+      items: [
+        { text: '简体中文', link: 'https://cn.vitejs.dev' },
+        { text: '日本語', link: 'https://ja.vitejs.dev' }
+      ]
+    },
+
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vitejs/vite' },
       { icon: 'twitter', link: 'https://twitter.com/vite_js' },

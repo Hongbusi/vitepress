@@ -2,6 +2,7 @@
 import VPNavBarTitle from './VPNavBarTitle.vue'
 // import VPNavBarSearch from './VPNavBarSearch.vue'
 import VPNavBarMenu from './VPNavBarMenu.vue'
+import VPNavBarTranslations from './VPNavBarTranslations.vue'
 import VPNavBarAppearance from './VPNavBarAppearance.vue'
 import VPNavBarSocialLinks from './VPNavBarSocialLinks.vue'
 import VPNavBarExtra from './VPNavBarExtra.vue'
@@ -24,6 +25,7 @@ defineEmits<{
       <div class="content">
         <!-- <VPNavBarSearch class="search" /> -->
         <VPNavBarMenu class="menu" />
+        <VPNavBarTranslations class="translations" />
         <VPNavBarAppearance class="appearance" />
         <VPNavBarSocialLinks class="social-links" />
         <VPNavBarExtra class="extra" />
@@ -74,28 +76,24 @@ defineEmits<{
   flex-grow: 1;
 }
 
-.menu + .appearance {
-  margin-left: 8px;
-}
-
+.menu + .translations::before,
 .menu + .appearance::before,
+.translations + .appearance::before,
 .appearance + .social-links::before {
   margin-right: 8px;
+  margin-left: 8px;
   width: 1px;
   height: 24px;
   background-color: var(--vp-c-divider-light);
   content: "";
 }
 
-.menu + .appearance::before {
+.menu + .appearance::before,
+.translations + .appearance::before {
   margin-right: 16px;
 }
 
 .appearance + .social-links::before {
-  margin-right: 8px;
-}
-
-.appearance + .social-links {
   margin-left: 16px;
 }
 

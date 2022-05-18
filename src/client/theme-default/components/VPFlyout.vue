@@ -7,6 +7,7 @@ import VPIconMoreHorizontal from './icons/VPIconMoreHorizontal.vue'
 import VPMenu from './VPMenu.vue'
 
 const props = defineProps<{
+  icon?: any
   button?: string
   label?: string
   items?: any[]
@@ -37,8 +38,9 @@ function onBlur() {
       :aria-label="label"
       @click="open = !open"
     >
-      <span v-if="props.button" class="text">
-        {{ props.button }}
+      <span v-if="button || icon" class="text">
+        <component v-if="icon" :is="icon" class="option-icon" />
+        {{ button }}
         <VPIconChevronDown class="text-icon" />
       </span>
 
@@ -87,7 +89,7 @@ function onBlur() {
   transition: color 0.5s;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 960px) {
   .button {
     height: var(--vp-nav-height-desktop);
   }
@@ -103,10 +105,17 @@ function onBlur() {
   transition: color 0.25s;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 960px) {
   .text {
     line-height: var(--vp-nav-height-desktop);
   }
+}
+
+.option-icon {
+  margin-right: 0px;
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
 }
 
 .text-icon {
@@ -134,7 +143,7 @@ function onBlur() {
 
 @media (min-width: 1280px) {
   .menu {
-    top: calc(var(--vp-nav-height-desktop) / 2 + 12px);
+    top: calc(var(--vp-nav-height-desktop) / 2 + 20px);
   }
 }
 </style>

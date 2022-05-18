@@ -13,42 +13,6 @@ export namespace DefaultTheme {
     sidebar?: Sidebar
 
     /**
-     * GitHub repository following the format <user>/<project>.
-     *
-     * @example `"vuejs/vue-next"`
-     */
-    repo?: string
-
-    /**
-     * Customize the header label. Defaults to GitHub/Gitlab/Bitbucket
-     * depending on the provided repo.
-     *
-     * @example `"Contribute!"`
-     */
-    repoLabel?: string
-
-    /**
-     * If your docs are in a different repository from your main project.
-     *
-     * @example `"vuejs/docs-next"`
-     */
-    docsRepo?: string
-
-    /**
-     * If your docs are not at the root of the repo.
-     *
-     * @example `"docs"`
-     */
-    docsDir?: string
-
-    /**
-     * If your docs are in a different branch. Defaults to `master`.
-     *
-     * @example `"next"`
-     */
-    docsBranch?: string
-
-    /**
      * Enable links to edit pages at the bottom of the page.
      */
     editLinks?: boolean
@@ -76,13 +40,23 @@ export namespace DefaultTheme {
 
     locales?: Record<string, LocaleConfig & Omit<Config, 'locales'>>
 
+    /**
+     * Adds locale menu to the nav. This option should be used when you have
+     * your translated sites outside of the project.  When you have your
+     * translated docs within the project, you should use `locales`
+     * option instead.
+     */
+    localeLinks?: LocaleLinks
+
+    /**
+     * The algolia options. Leave it undefined to disable the search feature.
+     */
     algolia?: AlgoliaSearchOptions
 
-    carbonAds?: {
-      carbon: string
-      custom?: string
-      placement: string
-    }
+    /**
+     * The carbon ads options. Leave it undefined to disable the ads feature.
+     */
+    carbonAds?: CarbonAdsOptions
   }
 
   // nav -----------------------------------------------------------------------
@@ -140,19 +114,6 @@ export namespace DefaultTheme {
     | 'twitter'
     | 'youtube'
 
-  // algolia  ------------------------------------------------------------------
-
-  // partially copied from @docsearch/react/dist/esm/DocSearch.d.ts
-  export interface AlgoliaSearchOptions {
-    appId?: string
-    apiKey: string
-    indexName: string
-    placeholder?: string
-    searchParameters?: any
-    disableUserPersonalization?: boolean
-    initialQuery?: string
-  }
-
   // locales -------------------------------------------------------------------
 
   export interface LocaleConfig {
@@ -165,5 +126,36 @@ export namespace DefaultTheme {
      * Label for this locale in the language dropdown.
      */
     label?: string
+  }
+
+  export interface LocaleLinks {
+    text: string
+    items: LocaleLink[]
+  }
+
+  export interface LocaleLink {
+    text: string
+    link: string
+  }
+
+  // algolia ------------------------------------------------------------------
+
+  // partially copied from @docsearch/react/dist/esm/DocSearch.d.ts
+  export interface AlgoliaSearchOptions {
+    appId?: string
+    apiKey: string
+    indexName: string
+    placeholder?: string
+    searchParameters?: any
+    disableUserPersonalization?: boolean
+    initialQuery?: string
+  }
+
+  // carbon ads ----------------------------------------------------------------
+
+  export interface CarbonAdsOptions {
+    carbon: string
+    custom?: string
+    placement: string
   }
 }
