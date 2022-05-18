@@ -28,7 +28,7 @@ const { site, theme } = useData()
 
 @media (min-width: 960px) {
   .VPNavBarTitle {
-    width: var(--vp-sidebar-width);
+    width: calc(var(--vp-sidebar-width) - 32px);
     height: var(--vp-nav-height-desktop);
   }
 }

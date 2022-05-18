@@ -147,6 +147,14 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/vitejs/vite' },
       { icon: 'twitter', link: 'https://twitter.com/vite_js' },
       { icon: 'discord', link: 'https://chat.vitejs.dev' }
-    ]
+    ],
+
+    algolia: {
+      apiKey: 'b573aa848fd57fb47d693b531297403c',
+      indexName: 'vitejs',
+      searchParameters: {
+        facetFilters: ['tags:en']
+      }
+    }
   }
 })

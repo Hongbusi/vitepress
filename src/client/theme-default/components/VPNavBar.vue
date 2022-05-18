@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import VPNavBarTitle from './VPNavBarTitle.vue'
-// import VPNavBarSearch from './VPNavBarSearch.vue'
+import VPNavBarSearch from './VPNavBarSearch.vue'
 import VPNavBarMenu from './VPNavBarMenu.vue'
 import VPNavBarTranslations from './VPNavBarTranslations.vue'
 import VPNavBarAppearance from './VPNavBarAppearance.vue'
@@ -23,7 +23,7 @@ defineEmits<{
       <VPNavBarTitle />
 
       <div class="content">
-        <!-- <VPNavBarSearch class="search" /> -->
+        <VPNavBarSearch class="search" />
         <VPNavBarMenu class="menu" />
         <VPNavBarTranslations class="translations" />
         <VPNavBarAppearance class="appearance" />
@@ -43,7 +43,7 @@ defineEmits<{
 .VPNavBar {
   position: relative;
   border-bottom: 1px solid var(--vp-c-divider-light);
-  padding: 0 0 0 24px;
+  padding: 0 8px 0 24px;
   height: var(--vp-nav-height-mobile);
   background-color: var(--vt-c-bg);
   transition: border-color 0.5s, background-color 0.5s;
