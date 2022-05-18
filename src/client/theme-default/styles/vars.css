@@ -105,6 +105,8 @@
   --vp-c-text-inverse-3: var(--vp-c-text-dark-3);
   --vp-c-text-inverse-4: var(--vp-c-text-dark-4);
 
+  --vp-c-text-code: var(--vp-c-indigo-soft);
+
   --vp-c-brand: var(--vp-c-green);
   --vp-c-brand-light: var(--vp-c-green-light);
   --vp-c-brand-dark: var(--vp-c-green-dark);
@@ -132,6 +134,8 @@
   --vp-c-text-inverse-2: var(--vp-c-text-light-2);
   --vp-c-text-inverse-3: var(--vp-c-text-light-3);
   --vp-c-text-inverse-4: var(--vp-c-text-light-4);
+
+  --vp-c-text-code: var(--vp-c-indigo-light);
 }
 
 /**

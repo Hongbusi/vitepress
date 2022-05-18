@@ -76,6 +76,12 @@ defineEmits<{
   flex-grow: 1;
 }
 
+@media (min-width: 960px) {
+  .content {
+    backdrop-filter: saturate(50%) blur(8px);
+  }
+}
+
 .menu + .translations::before,
 .menu + .appearance::before,
 .translations + .appearance::before,

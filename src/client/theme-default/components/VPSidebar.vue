@@ -108,7 +108,6 @@ watchPostEffect(async () => {
 
 @media (min-width: 960px) {
   .group {
-    border-top: 1px solid var(--vp-c-divider-light);
     padding-top: 8px;
   }
 

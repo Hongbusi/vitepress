@@ -19,7 +19,7 @@ const { site, theme } = useData()
   font-size: 16px;
   font-weight: 600;
   color: var(--vp-c-text-1);
-  transition: opacity 0.25s;
+  transition: background-color 0.5s, opacity 0.25s;
 }
 
 .VPNavBarTitle:hover {
@@ -28,8 +28,12 @@ const { site, theme } = useData()
 
 @media (min-width: 960px) {
   .VPNavBarTitle {
-    width: calc(var(--vp-sidebar-width) - 32px);
+    flex-shrink: 0;
+    margin-right: 32px;
+    border-bottom: 1px solid var(--vp-c-divider-light);
+    width: calc(var(--vp-sidebar-width) - 64px);
     height: var(--vp-nav-height-desktop);
+    background-color: var(--vp-c-bg-sidebar);
   }
 }
 

@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+import { Ref, ref, computed, watchEffect, onMounted, onUnmounted } from 'vue'
 import { useRoute, useData } from 'vitepress'
 import { getSidebar } from '../support/sidebar'
 
@@ -38,5 +38,33 @@ export function useSidebar() {
     open,
     close,
     toggle
+  }
+}
+
+/**
+ * a11y: cache the element that opened the Sidebar (the menu button) then
+ * focus that button again when Menu is closed with Escape key.
+ */
+export function useCloseSidebarOnEscape(isOpen: Ref<boolean>, close: () => {}) {
+  let triggerElement: HTMLButtonElement | undefined
+
+  watchEffect(() => {
+    triggerElement = isOpen.value
+      ? (document.activeElement as HTMLButtonElement)
+      : undefined
+  })
+
+  onMounted(() => {
+    window.addEventListener('keyup', onEscape)
+  })
+  onUnmounted(() => {
+    window.removeEventListener('keyup', onEscape)
+  })
+
+  function onEscape(e: KeyboardEvent) {
+    if (e.key === 'Escape' && isOpen.value) {
+      close()
+      triggerElement?.focus()
+    }
   }
 }

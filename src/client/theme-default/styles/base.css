@@ -19,7 +19,7 @@ body {
   font-family: var(--vp-font-family-base);
   font-size: 16px;
   font-weight: 400;
-  color: var(--vp-c-text);
+  color: var(--vp-c-text-1);
   background-color: var(--vp-c-bg-content);
   direction: ltr;
   font-synthesis: none;
