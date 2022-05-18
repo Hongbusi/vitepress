@@ -29,7 +29,7 @@ const { theme } = useData()
 <style scoped>
 .VPNavBarExtra {
   display: none;
-  margin-right: 12px;
+  margin-right: -12px;
 }
 
 @media (min-width: 768px) {

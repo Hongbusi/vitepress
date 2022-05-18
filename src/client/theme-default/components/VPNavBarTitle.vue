@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
 
-const { site } = useData()
+const { site, theme } = useData()
 </script>
 
 <template>
   <a class="VPNavBarTitle" href="/">
+    <img v-if="theme.logo" class="logo" :src="theme.logo" :alt="site.title">
     {{ site.title }}
   </a>
 </template>
@@ -14,7 +15,6 @@ const { site } = useData()
 .VPNavBarTitle {
   display: flex;
   align-items: center;
-  padding: 0 24px;
   height: var(--vp-nav-height-mobile);
   font-size: 16px;
   font-weight: 600;
@@ -26,10 +26,15 @@ const { site } = useData()
   opacity: 0.6;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 960px) {
   .VPNavBarTitle {
-    padding: 0 32px;
+    width: var(--vp-sidebar-width);
     height: var(--vp-nav-height-desktop);
   }
+}
+
+.logo {
+  margin-right: 8px;
+  height: 24px;
 }
 </style>

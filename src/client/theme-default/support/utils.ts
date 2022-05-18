@@ -34,6 +34,10 @@ export function isActive(
   return true
 }
 
+export function ensureStartingSlash(path: string): string {
+  return /^\//.test(path) ? path : `/${path}`
+}
+
 export function normalize(path: string): string {
   return decodeURI(path).replace(HASH_RE, '').replace(EXT_RE, '')
 }

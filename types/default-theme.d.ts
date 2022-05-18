@@ -1,8 +1,16 @@
 export namespace DefaultTheme {
   export interface Config {
     logo?: string
+
+    /**
+     * The nav items.
+     */
     nav?: NavItem[]
-    sidebar?: SideBarConfig | MultiSideBarConfig
+
+    /**
+     * The sidebar items.
+     */
+    sidebar?: Sidebar
 
     /**
      * GitHub repository following the format <user>/<project>.
@@ -60,6 +68,10 @@ export namespace DefaultTheme {
     prevLinks?: boolean
     nextLinks?: boolean
 
+    /**
+     * The social links to be displayed at the end of the nav bar. Perfect for
+     * placing links to social services such as GitHub, Twitter, Facebook, etc.
+     */
     socialLinks?: SocialLink[]
 
     locales?: Record<string, LocaleConfig & Omit<Config, 'locales'>>
@@ -95,32 +107,24 @@ export namespace DefaultTheme {
 
   // sidebar -------------------------------------------------------------------
 
-  export type SideBarConfig = SideBarItem[] | 'auto' | false
+  export type Sidebar = SidebarGroup[] | SidebarMulti
 
-  export interface MultiSideBarConfig {
-    [path: string]: SideBarConfig
+  export interface SidebarMulti {
+    [path: string]: SidebarGroup[]
   }
 
-  export type SideBarItem = SideBarLink | SideBarGroup
+  export interface SidebarGroup {
+    text: string
+    items: SidebarItem[]
+  }
 
-  export interface SideBarLink {
+  export interface SidebarItem {
     text: string
     link: string
   }
 
-  export interface SideBarGroup {
-    text: string
-    link?: string
-
-    /**
-     * @default false
-     */
-    collapsable?: boolean
-
-    children: SideBarItem[]
-  }
-
   // social link ---------------------------------------------------------------
+
   export interface SocialLink {
     icon: SocialLinkIcon
     link: string
@@ -137,6 +141,7 @@ export namespace DefaultTheme {
     | 'youtube'
 
   // algolia  ------------------------------------------------------------------
+
   // partially copied from @docsearch/react/dist/esm/DocSearch.d.ts
   export interface AlgoliaSearchOptions {
     appId?: string

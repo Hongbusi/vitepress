@@ -41,12 +41,19 @@ defineEmits<{
 .VPNavBar {
   position: relative;
   border-bottom: 1px solid var(--vp-c-divider-light);
+  padding: 0 0 0 24px;
   height: var(--vp-nav-height-mobile);
   background-color: var(--vt-c-bg);
   transition: border-color 0.5s, background-color 0.5s;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 768px) {
+  .VPNavBar {
+    padding: 0 32px;
+  }
+}
+
+@media (min-width: 960px) {
   .VPNavBar {
     height: var(--vp-nav-height-desktop);
     border-bottom: 0;
@@ -65,12 +72,6 @@ defineEmits<{
   justify-content: flex-end;
   align-items: center;
   flex-grow: 1;
-}
-
-@media (min-width: 1280px) {
-  .content {
-    padding: 0 32px;
-  }
 }
 
 .menu + .appearance {

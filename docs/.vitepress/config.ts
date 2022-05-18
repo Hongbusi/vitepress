@@ -5,7 +5,26 @@ export default defineConfig({
   title: 'Vite',
   description: 'Next Generation Frontend Tooling',
 
+  head: [
+    [
+      'script',
+      {},
+      `
+        ;(() => {
+          const saved = localStorage.getItem('vitepress-theme-appearance')
+          const prefereDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+
+          if (!saved || saved === 'auto' ? prefereDark : saved === 'dark') {
+            document.documentElement.classList.add('dark')
+          }
+        })()
+      `
+    ]
+  ],
+
   themeConfig: {
+    logo: '/logo.svg',
+
     nav: [
       { text: 'Guide', link: '/guide/' },
       { text: 'Config', link: '/config/' },
@@ -32,6 +51,89 @@ export default defineConfig({
         ]
       }
     ],
+
+    sidebar: {
+      '/': [
+        {
+          text: 'Guide',
+          items: [
+            {
+              text: 'Why Vite',
+              link: '/guide/why'
+            },
+            {
+              text: 'Getting Started',
+              link: '/guide/'
+            },
+            {
+              text: 'Features',
+              link: '/guide/features'
+            },
+            {
+              text: 'Using Plugins',
+              link: '/guide/using-plugins'
+            },
+            {
+              text: 'Dependency Pre-Bundling',
+              link: '/guide/dep-pre-bundling'
+            },
+            {
+              text: 'Static Asset Handling',
+              link: '/guide/assets'
+            },
+            {
+              text: 'Building for Production',
+              link: '/guide/build'
+            },
+            {
+              text: 'Deploying a Static Site',
+              link: '/guide/static-deploy'
+            },
+            {
+              text: 'Env Variables and Modes',
+              link: '/guide/env-and-mode'
+            },
+            {
+              text: 'Server-Side Rendering (SSR)',
+              link: '/guide/ssr'
+            },
+            {
+              text: 'Backend Integration',
+              link: '/guide/backend-integration'
+            },
+            {
+              text: 'Comparisons',
+              link: '/guide/comparisons'
+            },
+            {
+              text: 'Migration from v1',
+              link: '/guide/migration'
+            }
+          ]
+        },
+        {
+          text: 'APIs',
+          items: [
+            {
+              text: 'Plugin API',
+              link: '/guide/api-plugin'
+            },
+            {
+              text: 'HMR API',
+              link: '/guide/api-hmr'
+            },
+            {
+              text: 'JavaScript API',
+              link: '/guide/api-javascript'
+            },
+            {
+              text: 'Config Reference',
+              link: '/config/'
+            }
+          ]
+        }
+      ]
+    },
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vitejs/vite' },
