@@ -57,6 +57,7 @@ export function useCloseSidebarOnEscape(isOpen: Ref<boolean>, close: () => {}) {
   onMounted(() => {
     window.addEventListener('keyup', onEscape)
   })
+
   onUnmounted(() => {
     window.removeEventListener('keyup', onEscape)
   })

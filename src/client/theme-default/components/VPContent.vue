@@ -44,7 +44,7 @@ const { hasSidebar } = useSidebar()
 
 @media (min-width: 1440px) {
   .VPContent.has-sidebar {
-    padding-left: calc((100vw - var(--vp-layout-max-width)) / 2 + var(--vp-sidebar-width));
+    padding-left: calc((100vw - var(--vp-layout-max-width)) / 2 + var(--vp-sidebar-width) - 32px);
   }
 }
 </style>

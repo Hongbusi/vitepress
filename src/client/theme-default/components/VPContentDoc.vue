@@ -75,7 +75,7 @@ const pageName = computed(() => {
 
 @media (min-width: 1280px) {
   .VPContentDoc {
-    padding: 64px 0 128px 64px;
+    padding: 48px 0 128px 64px;
   }
 
   .VPContentDoc:not(.has-sidebar.has-aside) {
@@ -91,12 +91,6 @@ const pageName = computed(() => {
   }
 }
 
-@media (min-width: 1440px) {
-  .VPContentDoc {
-    padding: 64px 0 128px 96px;
-  }
-}
-
 .aside {
   position: relative;
   display: none;
@@ -109,12 +103,6 @@ const pageName = computed(() => {
   .aside {
     display: block;
     order: 2;
-  }
-}
-
-@media (min-width: 1440px) {
-  .aside {
-    padding-left: 96px;
   }
 }
 

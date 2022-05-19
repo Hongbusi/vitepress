@@ -181,7 +181,7 @@
 }
 
 /**
- * Components: Nav
+ * Component: Nav
  * -------------------------------------------------------------------------- */
 
 :root {
@@ -190,9 +190,25 @@
 }
 
 /**
- * Components: Sidebar
+ * Component: Sidebar
  * -------------------------------------------------------------------------- */
 
 :root {
   --vp-sidebar-width: 272px;
+}
+
+/**
+ * Component: Code
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-code-line-height: 24px;
+  --vp-code-font-size: 14px;
+
+  --vp-code-block-color: var(--vp-c-text-dark-1);
+  --vp-code-block-bg: #292d3e;
+}
+
+.dark {
+  --vp-code-block-bg: var(--vp-c-bg-sidebar);
 }
